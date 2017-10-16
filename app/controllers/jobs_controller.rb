@@ -33,14 +33,19 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.update(job_params)
 
-    flash.notice = "Job '#{@job.title}' updated!"
+    flash.notice = "#{@job.title} at #{@job.company.name} updated!"
 
     redirect_to company_job_path(@job.company, @job)
   end
 
 
   def destroy
-    # implement on your own!
+    job = Job.find(params[:id])
+    job.destroy
+
+    flash.notice = "#{job.company.name}: #{job.title} was successfully deleted!"
+
+    redirect_to company_jobs_path(job.company)
   end
 
   private

@@ -10,7 +10,6 @@ class JobsController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
     @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
     if @job.save

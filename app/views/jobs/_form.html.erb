@@ -14,5 +14,7 @@
   <%= f.label :category %>
   <%= f.collection_select :category_id, Category.order(:title),:id,:title, include_blank: false %>
 
+  <%= link_to "Create New Category", new_category_path %>
+
   <%= f.submit %>
 <% end %>

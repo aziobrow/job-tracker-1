@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @company = Company.find(params[:id])
+    @company = Category.find(params[:id])
   end
 
   def update

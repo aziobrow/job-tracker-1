@@ -3,7 +3,8 @@ require 'rails_helper'
 describe "User edits an existing job" do
   it "sees an edit form" do
     company = Company.create(name: "ESPN")
-    job = company.jobs.create(title: "Senior Dev", description: "Do important dev stuff", level_of_interest: 85, city: "Denver")
+    category = Category.create(title: "Web Development")
+    job = company.jobs.create(title: "Senior Dev", description: "Do important dev stuff", level_of_interest: 85, city: "Denver", category: category)
 
     visit edit_company_job_path(company, job)
 

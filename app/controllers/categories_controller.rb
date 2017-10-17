@@ -30,15 +30,15 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @company = Category.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   def update
-    @company = Category.find(params[:id])
-    @company.update(category_params)
+    @category= Category.find(params[:id])
+    @category.update(category_params)
 
-    if @company.save
-      flash[:success] = "#{@category.name} updated!"
+    if @category.save
+      flash[:success] = "#{@category.title} updated!"
       redirect_to category_path(@category)
     else
       render :edit

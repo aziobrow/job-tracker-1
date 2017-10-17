@@ -29,6 +29,23 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    @company = Category.find(params[:id])
+    @company.update(category_params)
+
+    if @company.save
+      flash[:success] = "#{@category.name} updated!"
+      redirect_to category_path(@category)
+    else
+      render :edit
+    end
+  end
+
+
   def category_params
     params.require(:category).permit(:title)
   end

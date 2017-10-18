@@ -9,4 +9,5 @@ All Jobs for <strong><%= @company.name %></strong>
 <% end %>
 
 <h3> Contacts (<%= @company.contacts.size %>) </h3>
+<%= render partial: 'companies/contact', collection: @company.contacts %>
 <%= render partial: 'contacts/form' %>

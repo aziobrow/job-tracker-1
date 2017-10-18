@@ -2,13 +2,13 @@
 
 <%= form_for [ @company, @contact ] do |f| %>
   <%= f.label :full_name, "First and Last Name" %>
-  <%= f.string :full_name %>
+  <%= f.text_field :full_name %>
 
   <%= f.label :position %>
-  <%= f.string :position %>
+  <%= f.text_field :position %>
 
   <%= f.label :email %>
-  <%= f.string :email %>
+  <%= f.text_field :email %>
 
   <%= f.submit %>
 <% end %>

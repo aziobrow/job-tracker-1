@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
   def index
-      @jobs = @company.jobs
+    @company = Company.find(params[:company_id])
+    @jobs = @company.jobs
+    @contact = Contact.new
   end
 
   def query
@@ -18,7 +20,7 @@ class JobsController < ApplicationController
 
   def new
     @company = Company.find(params[:company_id])
-    @job = Job.new()
+    @job = Job.new
   end
 
   def create

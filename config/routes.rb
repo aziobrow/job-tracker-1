@@ -2,10 +2,9 @@ Rails.application.routes.draw do
 
   root to: "dashboard#index"
 
-  get '/jobs' => "jobs#query", as: "query"
 
   resources :categories do
-    resources :jobs, only: [:show]
+    resources :jobs, only: [:index]
   end
 
   resources :companies do
@@ -13,10 +12,11 @@ Rails.application.routes.draw do
     resources :contacts, only: [:create]
   end
 
-  resources :jobs, only: [:index] do
+  resources :jobs, only: [] do
     resources :comments, only: [:create]
   end
 
+  get '/jobs', to: "jobs#query", as: "query"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,6 @@
 <h3> New Company Contact </h3>
 
-<%= form_for [ @company, @contact ] do |f| %>
+<%= form_for ([ @company, @contact ]) do |f| %>
   <%= f.label :full_name, "First and Last Name" %>
   <%= f.text_field :full_name %>
 

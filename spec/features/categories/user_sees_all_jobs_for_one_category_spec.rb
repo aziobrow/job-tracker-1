@@ -6,9 +6,9 @@ describe "User sees all jobs for one category" do
     category = Category.create(title: "Web Development")
     job = Job.create(title: "Developer", description: "doing stuff", level_of_interest: 90, city: "Denver", category: category, company: company)
 
-    visit category_job_path(category, job)
+    visit category_path(category)
 
-    expect(current_path).to eq("/categories/#{category.id}/jobs/#{job.id}")
+    expect(current_path).to eq("/categories/#{category.id}")
     expect(page).to have_content("Developer")
   end
 end

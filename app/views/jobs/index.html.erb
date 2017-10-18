@@ -7,3 +7,6 @@ All Jobs for <strong><%= @company.name %></strong>
   <div> <%= link_to "Delete", company_job_path(@company, job), method: :delete %></div>
 </ul>
 <% end %>
+
+<h3> Contacts (<%= @company.contacts.size %>) </h3>
+<%= render partial: 'contacts/form' %>

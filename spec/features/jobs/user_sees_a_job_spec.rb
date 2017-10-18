@@ -11,7 +11,8 @@ describe "User sees a specific job" do
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("70")
-    expect(page).to have_content("Your Comment")
+    expect(page).to have_content("Denver")
+    expect(page).to have_content("Enter a Comment")
   end
 
 end

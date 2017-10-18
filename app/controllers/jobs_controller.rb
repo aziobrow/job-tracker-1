@@ -1,21 +1,18 @@
 class JobsController < ApplicationController
   def index
-    if params[:sort] == "location"
-      @company = Company.find(params[:company_id])
-      @contact = Contact.new
-      @jobs =
-      @company.jobs
-        .order(:city)
-    elsif params[:sort] == "interest"
-      @company = Company.find(params[:company_id])
-      @contact = Contact.new
-      @jobs =
-      @company.jobs
-        .order(level_of_interest: "DESC")
-    elsif params[:location]
-      @jobs = Job.where(city: params[:location])
-    else
       @jobs = @company.jobs
+  end
+
+  def query
+    if params[:location]
+      @jobs = Job.where(city: params[:location])
+      @location = params[:location]
+    elsif params[:sort] == "location"
+      @jobs = Job.order(:city)
+    elsif params[:sort] == "interest"
+      @jobs = Job.order(level_of_interest: "DESC")
+    else
+      @jobs = Job.all
     end
   end
 
@@ -38,7 +35,6 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @comment = Comment.new
-    #@comment.article_id = @article.id
   end
 
   def edit

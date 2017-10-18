@@ -1,0 +1,7 @@
+All Jobs for <strong><%= @location %></strong>
+
+<% @jobs.each do |job| %>
+  <ul class="location_jobs"
+    <li><%= job.title %> at <%= job.company.name %></li>
+  </ul>
+<% end %>

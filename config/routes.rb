@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: "dashboard#index"
 
-  get '/jobs' => "jobs#location_jobs", as: "location_jobs"
+  get '/jobs' => "jobs#query", as: "query"
 
   resources :categories do
     resources :jobs, only: [:show]

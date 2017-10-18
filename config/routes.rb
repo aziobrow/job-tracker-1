@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: "dashboard#index"
 
+  get '/jobs' => "jobs#location_jobs", as: "location_jobs"
+
   resources :categories do
     resources :jobs, only: [:show]
   end
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:create]
   end
 
-  resources :jobs, only: [] do
+  resources :jobs, only: [:index] do
     resources :comments, only: [:create]
   end
 

@@ -17,12 +17,12 @@ class Job < ApplicationRecord
 
   def self.count_by_location
     group(:city)
-    .order(:level_of_interest)
-    .count
+    .order("count_id")
+    .count(:id)
   end
 
   def self.locations
-    count_by_level_of_interest
+    count_by_location
     .keys
   end
   #location should be link to visit jobs only from that location

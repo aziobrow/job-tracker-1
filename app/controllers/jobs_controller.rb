@@ -1,9 +1,18 @@
 class JobsController < ApplicationController
   def index
-    require "pry"; binding.pry
     @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
     @contact = Contact.new
+    if params[:sort] == "location"
+      @jobs =
+      @company.jobs
+        .order(:city)
+    elsif params[:sort] == "interest"
+      @jobs =
+      @company.jobs
+        .order(level_of_interest: "DESC")
+    else
+      @jobs = @company.jobs
+    end
   end
 
   def new

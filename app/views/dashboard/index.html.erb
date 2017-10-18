@@ -1,1 +1,13 @@
 <h1> Dashboard </h1>
+
+<p> Count of Jobs By Level of Interest: <%= @jobs.levels_of_interest.each do |level| %>
+  <ul>
+    <li>Level of Interest: <%= level %> Number of Jobs: <%= @jobs.count_by_level_of_interest[level] %></li>
+  </ul>
+<% end %>
+
+<p> Count of Jobs By Location: <%= @jobs.locations.each do |location| %>
+  <ul>
+    <li>Location: <%= level %> Number of Jobs: <%= @jobs.count_by_location[location] %></li>
+  </ul>
+<% end %>

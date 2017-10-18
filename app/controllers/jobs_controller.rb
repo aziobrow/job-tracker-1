@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   def index
+    require "pry"; binding.pry
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
     @contact = Contact.new

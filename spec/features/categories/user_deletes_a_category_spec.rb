@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "User deletes existing category" do
-  it "a user can delete a company" do
+  it "a user can delete a category" do
     category = Category.create(title: "Web Development")
     visit categories_path
 

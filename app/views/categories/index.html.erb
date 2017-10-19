@@ -1,13 +1,13 @@
 <h1>All Categories</h1>
 
+<h3><%= button_to "Add a New Category", new_category_path %></h3>
+
 <ul>
   <% @categories.each do |category| %>
   <li class=category_<%= category.id %>>
-    <h3><%= link_to category.title, category_path(category) %>:</h3>
+    <h3><%= link_to category.title, category_path(category) %></h3>
     <p class="link"><%= link_to "Edit", edit_category_path(category) %></p>
     <p class="link"><%= link_to "Delete", category_path(category), method: "delete" %></p>
   </li>
   <% end %>
 </ul>
-
-<h3><%= link_to "Add a New Category", new_category_path %></h3>

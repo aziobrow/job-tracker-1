@@ -1,4 +1,4 @@
 <div>
-  <p class = "comment"><%= comment.content %></p>
-  <p> Posted <%= distance_of_time_in_words(comment.job.created_at, comment.created_at) %> later </p>
-</div>
+  <p class="comment"><%= comment.content %></p>
+  <p class="comment_timestamp"> Posted <%= distance_of_time_in_words(comment.job.created_at, comment.created_at) %> later </p>
+</div><hr>

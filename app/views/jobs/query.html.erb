@@ -2,6 +2,6 @@
 
 <% @jobs.each do |job| %>
   <ul class="location_jobs"
-    <li><%= job.title %> at <%= job.company.name %></li>
+    <li><%= link_to job.title, company_job_path(job.company, job) %> at <%= link_to job.company.name, company_path(job.company) %></li>
   </ul>
 <% end %>

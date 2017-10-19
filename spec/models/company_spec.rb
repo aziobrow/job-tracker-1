@@ -50,14 +50,13 @@ describe Company do
       Job.create(title: "Tech Teacher", level_of_interest: 0, city: "Denver", company: company3, category: category)
       top_three = Company.top_three_companies_by_jobs_average_interest
 
-      expect(top_three.count).to eq(4)
       expect(top_three.first.name).to eq("Walmart")
-      expect(top_three.first.avg_interest).to eq("100")
+      expect(top_three.first.avg_interest).to eq(100)
       expect(top_three.second.name).to eq("Turing")
       expect(top_three.second.avg_interest).to eq(60)
       expect(top_three.last.name).to eq("Dropbox")
-      expect(top_three.last.name).to eq(10)
+      expect(top_three.last.avg_interest).to eq(10)
     end
   end
-  
+
 end

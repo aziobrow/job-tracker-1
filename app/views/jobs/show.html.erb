@@ -1,9 +1,9 @@
-Title: <%= @job.title %><br>
+<h1>Title: <%= @job.title %></h1><br>
 Description: <%= @job.description %><br>
 Level of Interest: <%= @job.level_of_interest %><br>
 City: <%= @job.city %><br>
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-<h3> Comments (<%= @job.comments.size %>) </h3>
+<h3> Comments (<%= @job.comments.size %>) </h3><hr>
 <%= render partial: 'jobs/comment', collection: @job.comments.reverse %>
 <%= render partial: 'comments/form' %>

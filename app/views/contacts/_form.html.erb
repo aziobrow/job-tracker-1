@@ -1,14 +1,16 @@
 <h1> New Company Contact </h1>
 
-<%= form_for ([ @company, @contact ]) do |f| %>
-  <%= f.label :full_name, "First and Last Name" %>
-  <%= f.text_field :full_name %>
+<div class= "container">
+  <%= form_for ([ @company, @contact ]) do |f| %>
+    <p class="label"><%= f.label :full_name, "First and Last Name" %></p>
+    <%= f.text_field :full_name %>
 
-  <%= f.label :position %>
-  <%= f.text_field :position %>
+    <p class="label"><%= f.label :position %></p>
+    <%= f.text_field :position %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+    <p class="label"><%= f.label :email %></p>
+    <%= f.text_field :email %><br>
 
-  <%= f.submit %>
-<% end %>
+    <p class="submit"><%= f.submit %></p>
+  <% end %>
+</div>

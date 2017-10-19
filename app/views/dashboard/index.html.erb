@@ -1,20 +1,20 @@
 <h1> Dashboard </h1>
 
-<p> Count of Jobs By Level of Interest: <% @jobs.count_by_level_of_interest.each do |level, count| %></p>
+<h3> Count of Jobs By Level of Interest: <% @jobs.count_by_level_of_interest.each do |level, count| %></h3>
   <ul>
-    <li>Level of Interest: <%= level %> Number of Jobs: <%= count %></li>
+    <li>Level of Interest: <%= level %> (<%= count %> job/s)</li>
   </ul>
 <% end %>
 
-<p> Top Three Companies Ranked by Average Level of Interest:
+<h3> Top Three Companies Ranked by Average Level of Interest:</h3>
   <% @companies.top_three_companies_by_jobs_average_interest.each do |company| %></p>
     <ul>
-      <li>Company: <%= company.name %> Average Level of Interest: <%= company.avg_interest %></li>
+      <li><%= link_to "#{company.name}", "/companies/#{company.id}/jobs" %> Average Level of Interest: <%= company.avg_interest %></li>
     </ul>
   <% end %>
 
-<p> Count of Jobs By Location: <% @jobs.count_by_location.each do |location, count| %></p>
+<h3> Count of Jobs By Location: <% @jobs.count_by_location.each do |location, count| %></h3>
   <ul>
-    <li><%= link_to "#{location}", "/jobs?location=#{location}" %> Number of Jobs: <%= count %></li>
+    <li><%= link_to "#{location}", "/jobs?location=#{location}" %> (<%= count %> job/s)</li>
   </ul>
 <% end %>

@@ -5,9 +5,10 @@
   <li><%= job.title %> at <%= job.company.name %></li>
   <div> <%= link_to "Edit", edit_company_job_path(@company, job) %></div>
   <div> <%= link_to "Delete", company_job_path(@company, job), method: :delete %></div>
+  <div> <%= link_to "Add New Job for this Compay", new_company_job_path(@company, job) %></div>
 </ul>
 <% end %>
 
-<h3> Contacts (<%= @company.contacts.size %>) </h3>
+<h3> Contacts (<%= @company.contacts.size %>) </h3><hr>
 <%= render partial: 'companies/contact', collection: @company.contacts %>
 <%= render partial: 'contacts/form' %>

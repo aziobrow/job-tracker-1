@@ -1,20 +1,22 @@
-<%= form_for [@company, @job] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br/>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %><br/>
+<div class="container">
+  <%= form_for [@company, @job] do |f| %>
+    <p class="label"><%= f.label :title %></p>
+    <%= f.text_field :title %><br/>
 
-  <%= f.label :level_of_interest %>
-  <%= f.number_field :level_of_interest %><br/>
+    <p class="label"><%= f.label :description %></p>
+    <%= f.text_field :description %><br/>
 
-  <%= f.label :city %>
-  <%= f.text_field :city %><br/>
+    <p class="label"><%= f.label :level_of_interest %></p>
+    <%= f.number_field :level_of_interest %><br/>
 
-  <%= f.label :category %>
-  <%= f.collection_select :category_id, Category.order(:title),:id,:title, include_blank: false %><br/>
+    <p class="label"><%= f.label :city %></p>
+    <%= f.text_field :city %><br/>
 
-  <%= f.submit %>
-<% end %>
+    <p class="label"><%= f.label :category %></p><br>
+    <%= f.collection_select :category_id, Category.order(:title),:id,:title, include_blank: false %><br/>
+    <h3><%= link_to "Create New Category", new_category_path %></h3>
 
-<h3><%= link_to "Create New Category", new_category_path %></h3>
+    <p class="submit"><%= f.submit %></p>
+  <% end %>
+</div>

@@ -59,7 +59,7 @@ input[type=button], input[type=submit], input[type=reset] {
   background-color: $bright-gray;
   border: none;
   color: $ghost-white;
-  padding: 10px 24px;
+  padding: 24px 24px;
   text-decoration: none;
   margin-left: 10px;
   border-radius: 12px;
@@ -71,5 +71,32 @@ a:link {
 }
 
 a:visited {
-    color: $matisse;
+  color: $matisse;
+}
+
+.comments_header  {
+  padding-top: 50px;
+}
+
+.comment_timestamp  {
+  font-size: 10px;
+}
+
+.label  {
+  font-family: monospace;
+  padding: 10px;
+}
+
+.container {
+    width: 500px;
+    clear: both;
+}
+
+.container input {
+    width: 100%;
+    clear: both;
+}
+
+.submit {
+  padding-top: 15px;
 }

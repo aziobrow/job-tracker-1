@@ -10,6 +10,15 @@
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
   <% end %>
+
+<ul class='nav-bar'>
+  <li class='nav-bar-item'><a href="/">Dashboard</a></li>
+  <li class='nav-bar-item'><a href="/companies">All Companies</a></li>
+  <li class='nav-bar-item'><a href="/categories">All Categories</a></li>
+  <li class='nav-bar-item'><a href="/jobs">All Jobs</a></li>
+  <li class='nav-bar-item'><a href="/new-select">Add A New...</a></li>
+</ul>
+
 <%= yield %>
 
 </body>

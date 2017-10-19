@@ -6,16 +6,7 @@ class JobsController < ApplicationController
   end
 
   def query
-    if params[:location]
-      @jobs = Job.where(city: params[:location])
-      @location = params[:location]
-    elsif params[:sort] == "location"
-      @jobs = Job.order(:city)
-    elsif params[:sort] == "interest"
-      @jobs = Job.order(level_of_interest: "DESC")
-    else
-      @jobs = Job.all
-    end
+    @jobs = Job.parse_params(params)
   end
 
   def new
@@ -49,7 +40,6 @@ class JobsController < ApplicationController
     @job.update(job_params)
 
     flash.notice = "#{@job.title} at #{@job.company.name} updated!"
-
     redirect_to company_job_path(@job.company, @job)
   end
 
@@ -59,7 +49,6 @@ class JobsController < ApplicationController
     job.destroy
 
     flash.notice = "#{job.company.name}: #{job.title} was successfully deleted!"
-
     redirect_to company_jobs_path(job.company)
   end
 

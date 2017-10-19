@@ -3,6 +3,7 @@ $ghost-white: #FBFCFF;
 $bright-gray: #605856;
 $matisse: #1C6E8C;
 $malibu: #274156;
+$goldenrod: #DAA520;
 
 body {
   background-color: $thistle;
@@ -10,7 +11,7 @@ body {
 
 h1  {
   padding-top: 40px;
-  color: $matisse
+  color: $bright-gray
 }
 
 ul.nav-bar {
@@ -37,12 +38,9 @@ li.nav-bar-item a {
   font-family: monospace;
 }
 
-li a:hover {
-    background-color: $bright-gray;
-}
-
 input[type=text] {
-
+  width: 20%;
+  height: 25px;
   border: 2px solid $matisse;
   border-radius: 4px;
   color: black;
@@ -57,4 +55,12 @@ input[type=button], input[type=submit], input[type=reset] {
   margin-left: 10px;
   border-radius: 12px;
   cursor: pointer;
+}
+
+a:link {
+  color: $malibu;
+}
+
+a:visited {
+    color: $matisse;
 }

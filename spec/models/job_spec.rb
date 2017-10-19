@@ -45,4 +45,30 @@ describe Job do
       expect(job).to respond_to(:comments)
     end
   end
+
+  describe 'Class Methods' do
+    it 'counts jobs per level of interest' do
+      category = Category.create(title: "Web Development")
+      company = Company.create(name: "Dropbox")
+      Job.create(title: "Jr Developer", level_of_interest: 50, city: "Denver", company: company, category: category)
+      Job.create(title: "Sr Developer", level_of_interest: 70, city: "Denver", company: company, category: category)
+      Job.create(title: "Website Maintenance", level_of_interest: 50, city: "Denver", company: company, category: category)
+      ordered_jobs = Job.count_by_level_of_interest
+
+      expect(ordered_jobs.keys).to eq([50, 70])
+      expect(ordered_jobs.values).to eq([2, 1])
+    end
+
+    it 'counts jobs by location' do
+      category = Category.create(title: "Web Development")
+      company = Company.create(name: "Dropbox")
+      Job.create(title: "Jr Developer", level_of_interest: 50, city: "Denver", company: company, category: category)
+      Job.create(title: "Sr Developer", level_of_interest: 70, city: "Atlanta", company: company, category: category)
+      Job.create(title: "Website Maintenance", level_of_interest: 50, city: "Denver", company: company, category: category)
+      ordered_jobs = Job.count_by_location
+
+      expect(ordered_jobs.keys).to eq(["Atlanta", "Denver"])
+      expect(ordered_jobs.values).to eq([1, 2])
+    end
+  end
 end

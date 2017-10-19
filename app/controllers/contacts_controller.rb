@@ -6,6 +6,8 @@ class ContactsController < ApplicationController
     redirect_to company_jobs_path(@company)
   end
 
+private
+
   def contact_params
     params.require(:contact).permit(:full_name, :position, :email, :company_id)
   end

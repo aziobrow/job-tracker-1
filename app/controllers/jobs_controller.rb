@@ -63,7 +63,7 @@ class JobsController < ApplicationController
     redirect_to company_jobs_path(job.company)
   end
 
-  private
+private
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id, :company)
